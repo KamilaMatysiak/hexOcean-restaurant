@@ -8,7 +8,7 @@
     & &__label {
         text-align: left;
         margin: 2px 0;
-        color: #555;
+        color: var(--text-black-secondary);
     }
 
     & &__input {
@@ -16,7 +16,7 @@
         padding: 16px;
         min-width: calc(100% - 32px);
         max-width: 100%;
-        border: 1px solid rgba(0,0,0,0.12);
+        border: 1px solid var(--border-color);
         transition: 0.3s all;
 
         &:hover {
@@ -30,7 +30,7 @@
     }
 
     & &__select {
-        border: 1px solid rgba(0,0,0,0.12);
+        border: 1px solid var(--border-color);
         box-sizing: border-box;
         border-radius: 8px;
         padding: 16px 12px;

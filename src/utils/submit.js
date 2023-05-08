@@ -10,7 +10,7 @@ async function fetchData(values) {
   });
 
   if (res.status === 200) {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+    window.alert(`You submitted:\n\n${values}`);
   } else {
     let resJson = await res.json();
     let error_message = {}

@@ -38,7 +38,7 @@ body {
     top: 25%;
 
     & &__title {
-        color: #fff;
+        color: var(--text-white);
         font-size: 64px;
         max-width: fit-content;
         padding: 2px 16px;
@@ -48,7 +48,7 @@ body {
     }
 
     & &__subtitle {
-        color: #777;
+        color: var(--text-white-secondary);
         letter-spacing: 5px;
         margin: 4px;
         font-weight: 300;
