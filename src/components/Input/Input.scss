@@ -10,10 +10,27 @@
     }
 
     & &__input {
-        padding: 8px 12px;
         border-radius: 8px;
+        padding: 8px 12px;
         min-width: 90%;
+        max-width: 90%;
         border: 1px solid rgba(0,0,0,0.12);
+
+    }
+
+    & &__select {
+        border: 1px solid rgba(0,0,0,0.12);
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 8px 12px;
+        min-width: calc(90% + 24px);
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: none;
+        background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
+        background-repeat: no-repeat;
+        background-size: 12px 12px;
+        background-position: calc(100% - 12px);      
     }
 
     & &__error {

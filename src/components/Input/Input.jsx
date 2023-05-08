@@ -34,7 +34,7 @@ export const renderTextField = ({ input, label, meta: { touched, error } }) => (
     <div className='field'>
       <label className='field__label'>{label}</label>
       <div>
-        <select className='field__input' {...input} placeholder={label} type="select">
+        <select className='field__select' {...input} placeholder={label} type="select">
             <option/>
             {options.map((option) => (
                 <option>{option}</option>

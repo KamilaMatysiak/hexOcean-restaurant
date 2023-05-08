@@ -3,11 +3,13 @@ import { Field, reduxForm } from 'redux-form'
 import submit from '../../utils/submit'
 import { renderTextField, renderTimeField, renderNumberField, renderSelectField } from '../Input/Input'
 import { dishesTypes } from '../../assets/data'
+import './Form.scss'
 
 const Form = props => {
   const { error, handleSubmit } = props
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <form className="form" onSubmit={handleSubmit(submit)}>
+      <h1 className='form__title'>HexResteurant</h1>
       <Field
         name="name"
         component={renderTextField}
