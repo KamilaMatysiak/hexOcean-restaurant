@@ -1,0 +1,19 @@
+.form {
+    max-width: 350px;
+    margin: 64px auto;
+    padding: 12px 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 8px;
+
+    & &__title {
+        max-width: fit-content;
+        padding: 2px 16px 2px 0;
+        margin: 8px 0;
+        color: #333;
+        border-bottom: 4px solid var(--primary-color-400);
+    }
+}
