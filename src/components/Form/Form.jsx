@@ -8,6 +8,7 @@ import './Form.scss'
 import Button from '../Button/Button'
 
 let Form = props => {
+
   const { error, handleSubmit, typeValue } = props
   return (
     <form className="form" onSubmit={handleSubmit(submit)}>
@@ -74,8 +75,13 @@ let Form = props => {
 const selector = formValueSelector('submitValidation')
 
 Form = connect(state => {
+    const nameValue = selector(state, 'name');
+    const preparationTimeValue = selector(state, 'preparation_time');
     const typeValue = selector(state, 'type');
-    return { typeValue }
+    const spicinessScaleValue = selector(state, 'spiciness_scale');
+    const noSlicesValue = selector(state, 'no_of_slices');
+    const breadSlicesValue = selector(state, 'slices_of_bread');
+    return { nameValue, preparationTimeValue, typeValue, breadSlicesValue, spicinessScaleValue, noSlicesValue }
 }) (Form)
 
 export default reduxForm({
