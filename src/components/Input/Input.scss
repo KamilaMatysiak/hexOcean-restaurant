@@ -11,10 +11,19 @@
 
     & &__input {
         border-radius: 8px;
-        padding: 8px 12px;
+        padding: 16px 24px;
         min-width: 90%;
         max-width: 90%;
         border: 1px solid rgba(0,0,0,0.12);
+        transition: 0.3s all;
+
+        &:hover {
+            border: 1px solid var(--primary-color-200);
+        }
+
+        &:focus, &:active {
+            border: 1px solid var(--primary-color-400);
+        }
 
     }
 
@@ -22,15 +31,20 @@
         border: 1px solid rgba(0,0,0,0.12);
         box-sizing: border-box;
         border-radius: 8px;
-        padding: 8px 12px;
-        min-width: calc(90% + 24px);
+        padding: 16px 12px;
+        min-width: calc(90% + 48px);
         -webkit-appearance: none;
         appearance: none;
         -moz-appearance: none;
         background-image: url('https://www.svgrepo.com/show/80156/down-arrow.svg');
         background-repeat: no-repeat;
         background-size: 12px 12px;
-        background-position: calc(100% - 12px);      
+        background-position: calc(100% - 12px);    
+        transition: 0.3s all;
+
+        &:hover {
+            border: 1px solid var(--primary-color-200);
+        }  
     }
 
     & &__error {
