@@ -5,6 +5,7 @@ import submit from '../../utils/submit'
 import { renderTextField, renderTimeField, renderNumberField, renderSelectField } from '../Input/Input'
 import { dishesTypes, spicinessScale } from '../../assets/data'
 import './Form.scss'
+import Button from '../Button/Button'
 
 let Form = props => {
   const { error, handleSubmit, typeValue } = props
@@ -46,33 +47,26 @@ let Form = props => {
         </>
       )}
 
-      {typeValue == 'soup' && (
-        <>
-            <Field
-                name="spiciness_scale"
-                component={renderSelectField}
-                label="Spiciness scale"
-                options={spicinessScale}
-            />
-        </>
+      {typeValue == 'soup' && ( 
+        <Field
+            name="spiciness_scale"
+            component={renderSelectField}
+            label="Spiciness scale"
+            options={spicinessScale}
+        />
       )}
 
       {typeValue == 'sandwich' && (
-        <>
-            <Field
-                name="slices_of_bread"
-                component={renderNumberField}
-                label="Slices of bread"
-                min={1}
-            />
-        </>
+        <Field
+            name="slices_of_bread"
+            component={renderNumberField}
+            label="Slices of bread"
+            min={1}
+        />
       )}
       {error && <strong>{error}</strong>}
-      <div>
-        <button type="submit">
-          Submit
-        </button>
-      </div>
+        
+      <Button buttonText="Submit"/>
     </form>
   )
 }
