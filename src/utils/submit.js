@@ -9,18 +9,18 @@ async function fetchData(values) {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  let resJson = await res.json();
-  console.log("ResJson", resJson);
-
   if (res.status === 200) {
     window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
   } else {
-    console.log(resJson, 'err')
-    throw new SubmissionError(...Object.entries(resJson))
+    let resJson = await res.json();
+    let error_message = {}
+
     for (const [field, message] of Object.entries(resJson)) {
-      throw new SubmissionError(...resJson)
+      error_message[field] = message[0]
+    }
+    
+    throw new SubmissionError(error_message)
   }
-}
 }
 
 export default function submit(values) {
