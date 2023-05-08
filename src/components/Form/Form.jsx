@@ -1,12 +1,13 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, formValueSelector, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
 import submit from '../../utils/submit'
 import { renderTextField, renderTimeField, renderNumberField, renderSelectField } from '../Input/Input'
-import { dishesTypes } from '../../assets/data'
+import { dishesTypes, spicinessScale } from '../../assets/data'
 import './Form.scss'
 
-const Form = props => {
-  const { error, handleSubmit } = props
+let Form = props => {
+  const { error, handleSubmit, typeValue } = props
   return (
     <form className="form" onSubmit={handleSubmit(submit)}>
       <h1 className='form__title'>HexResteurant</h1>
@@ -26,6 +27,46 @@ const Form = props => {
         label="Type"
         options={dishesTypes}
       />
+
+      {typeValue == 'pizza' && (
+        <>
+            <Field
+                name="diameter"
+                component={renderNumberField}
+                label="Diameter"
+                min={1}
+            />
+
+            <Field
+                name="no_of_slices"
+                component={renderNumberField}
+                label="Number of slices"
+                min={1}
+            />
+        </>
+      )}
+
+      {typeValue == 'soup' && (
+        <>
+            <Field
+                name="spiciness_scale"
+                component={renderSelectField}
+                label="Spiciness scale"
+                options={spicinessScale}
+            />
+        </>
+      )}
+
+      {typeValue == 'sandwich' && (
+        <>
+            <Field
+                name="slices_of_bread"
+                component={renderNumberField}
+                label="Slices of bread"
+                min={1}
+            />
+        </>
+      )}
       {error && <strong>{error}</strong>}
       <div>
         <button type="submit">
@@ -35,6 +76,13 @@ const Form = props => {
     </form>
   )
 }
+
+const selector = formValueSelector('submitValidation')
+
+Form = connect(state => {
+    const typeValue = selector(state, 'type');
+    return { typeValue }
+}) (Form)
 
 export default reduxForm({
   form: 'submitValidation'
