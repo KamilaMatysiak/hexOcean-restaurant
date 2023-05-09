@@ -14,17 +14,17 @@ export const renderTimeField = ({ input, label, meta: { touched, error } }) => (
   <div className='field'>
     <label className='field__label'>{label}</label>
     <div>
-      <input className='field__input' {...input} placeholder={label} step="1" type="time" />
+      <input className='field__input' {...input} placeholder={label} step={1} type="time" />
       {touched && error && <span className='field__error'>{error}</span>}
     </div>
   </div>
 )
 
-export const renderNumberField = ({ input, label, min, meta: { touched, error } }) => (
+export const renderNumberField = ({ input, label, min, step, meta: { touched, error } }) => (
   <div className='field'>
     <label className='field__label'>{label}</label>
     <div>
-      <input className='field__input' {...input} placeholder={label} type="number" min={min} />
+      <input className='field__input' {...input} placeholder={label} type="number" min={min} step={step}/>
       {touched && error && <span className='field__error'>{error}</span>}
     </div>
   </div>

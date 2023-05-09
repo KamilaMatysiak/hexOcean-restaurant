@@ -36,6 +36,7 @@ let Form = props => {
             name="diameter"
             component={renderNumberField}
             label="Diameter"
+            step={0.01}
             min={1}
           />
 
@@ -43,6 +44,7 @@ let Form = props => {
             name="no_of_slices"
             component={renderNumberField}
             label="Number of slices"
+            step={1}
             min={1}
           />
         </>
@@ -62,6 +64,7 @@ let Form = props => {
           name="slices_of_bread"
           component={renderNumberField}
           label="Slices of bread"
+          step={1}
           min={1}
         />
       )}
