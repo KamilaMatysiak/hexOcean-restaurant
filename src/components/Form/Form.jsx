@@ -1,23 +1,23 @@
-import React from 'react'
-import { Field, formValueSelector, reduxForm } from 'redux-form'
-import { connect } from 'react-redux'
-import submit from '../../utils/submit'
-import { renderTextField, renderTimeField, renderNumberField, renderSelectField } from '../Input/Input'
-import { dishesTypes, spicinessScale } from '../../assets/data'
-import './Form.scss'
-import Button from '../Button/Button'
+import React from "react";
+import { Field, formValueSelector, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import submit from "../../utils/submit";
+import {
+  renderTextField,
+  renderTimeField,
+  renderNumberField,
+  renderSelectField,
+} from "../Input/Input";
+import { dishesTypes, spicinessScale } from "../../assets/data";
+import "./Form.scss";
+import Button from "../Button/Button";
 
-let Form = props => {
-
-  const { error, handleSubmit, typeValue } = props
+let Form = (props) => {
+  const { error, handleSubmit, typeValue } = props;
   return (
     <form className="form" onSubmit={handleSubmit(submit)}>
-      <h2 className='form__title'>Pick a dish</h2>
-      <Field
-        name="name"
-        component={renderTextField}
-        label="Name"
-      />
+      <h2 className="form__title">Pick a dish</h2>
+      <Field name="name" component={renderTextField} label="Name" />
       <Field
         name="preparation_time"
         component={renderTimeField}
@@ -30,7 +30,7 @@ let Form = props => {
         options={dishesTypes}
       />
 
-      {typeValue == 'pizza' && (
+      {typeValue == "pizza" && (
         <>
           <Field
             name="diameter"
@@ -50,7 +50,7 @@ let Form = props => {
         </>
       )}
 
-      {typeValue == 'soup' && (
+      {typeValue == "soup" && (
         <Field
           name="spiciness_scale"
           component={renderSelectField}
@@ -59,7 +59,7 @@ let Form = props => {
         />
       )}
 
-      {typeValue == 'sandwich' && (
+      {typeValue == "sandwich" && (
         <Field
           name="slices_of_bread"
           component={renderNumberField}
@@ -72,21 +72,28 @@ let Form = props => {
 
       <Button buttonText="Submit" />
     </form>
-  )
-}
+  );
+};
 
-const selector = formValueSelector('submitValidation')
+const selector = formValueSelector("submitValidation");
 
-Form = connect(state => {
-  const nameValue = selector(state, 'name');
-  const preparationTimeValue = selector(state, 'preparation_time');
-  const typeValue = selector(state, 'type');
-  const spicinessScaleValue = selector(state, 'spiciness_scale');
-  const noSlicesValue = selector(state, 'no_of_slices');
-  const breadSlicesValue = selector(state, 'slices_of_bread');
-  return { nameValue, preparationTimeValue, typeValue, breadSlicesValue, spicinessScaleValue, noSlicesValue }
-})(Form)
+Form = connect((state) => {
+  const nameValue = selector(state, "name");
+  const preparationTimeValue = selector(state, "preparation_time");
+  const typeValue = selector(state, "type");
+  const spicinessScaleValue = selector(state, "spiciness_scale");
+  const noSlicesValue = selector(state, "no_of_slices");
+  const breadSlicesValue = selector(state, "slices_of_bread");
+  return {
+    nameValue,
+    preparationTimeValue,
+    typeValue,
+    breadSlicesValue,
+    spicinessScaleValue,
+    noSlicesValue,
+  };
+})(Form);
 
 export default reduxForm({
-  form: 'submitValidation'
-})(Form)
+  form: "submitValidation",
+})(Form);

@@ -1,12 +1,12 @@
-import React from 'react'
-import './Button.scss'
+import React from "react";
+import "./Button.scss";
 
-const Button = ({buttonText}) => {
+const Button = ({ buttonText }) => {
   return (
     <button className="button" type="submit">
-        {buttonText}
+      {buttonText}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
